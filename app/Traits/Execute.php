@@ -9,6 +9,6 @@
 namespace App\Traits;
 
 
-trait Send {
+trait Execute {
 
 }
