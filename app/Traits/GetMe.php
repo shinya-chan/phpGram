@@ -16,9 +16,7 @@ class GetMe implements Method {
     public $method;
 
     public function prepare ( array $arguments ) {
-        $this->method = [
-            "method" => "getMe"
-        ];
+        $this->method = [];
 
     }
 
