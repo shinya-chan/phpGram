@@ -16,20 +16,22 @@ class SendAudio implements Send
 {
     public $msg;
 
+    use Execute;
+
     public function prepare(array $arguments)
     {
         $message = ([
-           'chat_id' => $arguments['chat_id'],
-           'audio' => $arguments['audio'],
+            'chat_id' => $arguments['chat_id'],
+            'audio' => $arguments['audio'],
             'caption' => $arguments['caption'],
-            'parse_mode' => $arguments['parse_mode'] ?? 'HTML',
+            $arguments['parse_mode'] ?? 'parse_mode' => $arguments['parse_mode'],
             'duration' => $arguments['duration'],
             'performer' => $arguments['performer'],
             'title' => $arguments['title'],
-            'thumb' => $arguments['thumb'] ?? null,
-            'disable_notification' => $arguments['disable_notification'] ?? 'false',
-            'reply_to_message_id' => $arguments['reply_to_message_id'] ?? 0,
-            'reply_markup' => $arguments['reply_markup']
+            $arguments['thumb'] ?? 'thumb' => $arguments['thumb'],
+            $arguments['disable_notification'] ?? 'disable_notification' => $arguments['disable_notification'],
+            $arguments['reply_to_message_id'] ?? 'reply_to_message_id' => $arguments['reply_to_message_id'],
+            $arguments['reply_markup'] ?? 'reply_markup' =>  $arguments['reply_markup']
         ]);
 
         $this->msg = json_encode($message);
