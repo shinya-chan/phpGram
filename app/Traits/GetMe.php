@@ -13,14 +13,12 @@ use App\interfaces\Method;
 
 class GetMe implements Method {
 
-    public $method;
+    public $parameters;
+
+    use Execute;
 
     public function prepare ( array $arguments ) {
-        $this->method = [];
-
+        $this->parameters = [];
     }
 
-    public function execute ( $api ) {
-
-    }
 }
