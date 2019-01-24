@@ -15,12 +15,11 @@ class SendMessage implements Send  {
     }
 
     public function prepare ( array $arguments ) {
-        $message = new Message(
+        $message =
             [
                 'text' => $arguments['text'],
                 'chat_id' => $arguments['chat_id']
-            ]
-        );
+            ];
 
         $this->msg = $message;
     }
